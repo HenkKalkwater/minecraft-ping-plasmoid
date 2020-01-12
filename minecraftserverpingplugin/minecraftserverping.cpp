@@ -17,23 +17,7 @@
  */
 
 #include "minecraftserverping.h"
-#include <klocalizedstring.h>
 
-MinecraftServerPing::MinecraftServerPing(QObject *parent, const QVariantList &args)
-    : Plasma::Applet(parent, args),
-      m_nativeText(i18n("Text coming from C++ plugin"))
-{
+void MinecraftServerPingPlugin::registerTypes(const char* uri) {
+	qmlRegisterType<MinecraftServer>(uri, 1, 0, "MinecraftServer");
 }
-
-MinecraftServerPing::~MinecraftServerPing()
-{
-}
-
-QString MinecraftServerPing::nativeText() const
-{
-    return m_nativeText;
-}
-
-K_EXPORT_PLASMA_APPLET_WITH_JSON(minecraftserverping, MinecraftServerPing, "metadata.json")
-
-#include "minecraftserverping.moc"

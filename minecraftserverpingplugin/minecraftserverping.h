@@ -19,22 +19,15 @@
 #ifndef MINECRAFTSERVERPING_H
 #define MINECRAFTSERVERPING_H
 
+#include <QQmlExtensionPlugin>
+#include <QQmlEngine>
 
-#include <Plasma/Applet>
+#include "minecraftserver.h"
 
-class MinecraftServerPing : public Plasma::Applet
-{
-    Q_OBJECT
-    Q_PROPERTY(QString nativeText READ nativeText CONSTANT)
-
+class MinecraftServerPingPlugin : public QQmlExtensionPlugin {
+	Q_OBJECT
+    Q_PLUGIN_METADATA(IID "nl.netsoj.minecraftserverping")
 public:
-    MinecraftServerPing( QObject *parent, const QVariantList &args );
-    ~MinecraftServerPing();
-
-    QString nativeText() const;
-
-private:
-    QString m_nativeText;
+	void registerTypes(const char *uri) override;
 };
-
 #endif
