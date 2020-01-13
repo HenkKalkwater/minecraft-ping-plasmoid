@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333332 4.2333335"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="icon-placeholder.svg"
+   inkscape:export-filename="/home/chris/Programmeren/KDE/MinecraftServerPing/package/icon.png"
+   inkscape:export-xdpi="384"
+   inkscape:export-ydpi="384">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.4"
+     inkscape:cx="4.4978403"
+     inkscape:cy="4.7604441"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:pagecheckerboard="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4518"
+       empspacing="4" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-292.76665)">
+    <rect
+       style="fill:#9f5800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4520"
+       width="4.2333331"
+       height="3.175"
+       x="0"
+       y="293.82498"
+       inkscape:label="background" />
+    <g
+       id="g4582"
+       inkscape:label="grass">
+      <rect
+         y="292.76666"
+         x="0"
+         height="1.0583333"
+         width="4.2333331"
+         id="rect4522"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="0.26458332"
+         height="0.26458332"
+         width="0.26458332"
+         id="rect4524"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="1.3229166"
+         height="0.52916664"
+         width="0.26458332"
+         id="rect4526"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="0.79374999"
+         height="0.26458332"
+         width="0.52916664"
+         id="rect4528"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="1.8520833"
+         height="0.26458332"
+         width="0.26458332"
+         id="rect4530"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="2.3812499"
+         height="0.26458332"
+         width="1.0583333"
+         id="rect4532"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="294.08957"
+         x="2.6458333"
+         height="0.26458332"
+         width="0.26458332"
+         id="rect4534"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="3.7041667"
+         height="0.26458332"
+         width="0.26458332"
+         id="rect4536"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="293.82498"
+         x="3.96875"
+         height="0.52916664"
+         width="0.26458332"
+         id="rect4538"
+         style="fill:#145800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g4552"
+       inkscape:label="bars">
+      <rect
+         y="295.4054"
+         x="1.7174294"
+         height="1.058337"
+         width="0.26458338"
+         id="rect4540"
+         style="fill:#14e800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="295.93457"
+         x="1.1882627"
+         height="0.52917928"
+         width="0.26458341"
+         id="rect4542"
+         style="fill:#14e800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="294.34708"
+         x="2.7757626"
+         height="2.1166666"
+         width="0.26458332"
+         id="rect4544"
+         style="fill:#14e800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="294.87622"
+         x="2.2465961"
+         height="1.5875"
+         width="0.26458332"
+         id="rect4546"
+         style="fill:#14e800;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
