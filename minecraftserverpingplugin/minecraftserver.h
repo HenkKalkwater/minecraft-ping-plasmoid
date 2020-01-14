@@ -30,7 +30,7 @@
 #include <QStack>
 #include <QTcpSocket>
 
-#include <map>
+#include "formatcodeconverter.h"
 
 /**
  * Represents a Minecraft Server
@@ -264,6 +264,12 @@ private:
 	 * @returns amount of bytes read, 0 if failed to parse varint.
 	 */
 	static int readVarInt(QIODevice &source, qint32 &result);
+	
+	/**
+	 * True if address and/or port has been changed since previous ping.
+	 * If this is set to true, previous state must be cleared.
+	 */
+	bool addressChangedSincePreviousPing = true;
 };
 
 #endif // MINECRAFTSERVER_H
