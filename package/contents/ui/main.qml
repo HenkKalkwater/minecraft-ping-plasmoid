@@ -25,6 +25,9 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import nl.netsoj.minecraftserverping 1.0 as MSP
 
 Item {
+	id: plasmoidRoot
+	// Poor people of example.org won't be able to monitor their minecraft server :/
+	property bool configurationRequired: plasmoid.configuration.address == "" || plasmoid.configuration.address == "example.org" || plasmoid.configuration.port == null
 	/**
 	 * This object handles the pinging, and is part of th
 	 */
@@ -35,18 +38,16 @@ Item {
 		port: plasmoid.configuration.port
 		autoPing: false
 		function validateAndRefresh() {
-			if (plasmoid.configuration.address != "" && plasmoid.configuration.address != "example.org" && plasmoid.configuration.port != null) {
+			if (!plasmoidRoot.configurationRequired) {
 				refresh()
 			}
 		}
 		
 		onAddressChanged: {
 			server.validateAndRefresh()
-			pingingNewServer = true
 		}
 		onPortChanged: {
 			server.validateAndRefresh()
-			pingingNewServer = true
 		}
 		Component.onCompleted: firstDelayTimer.start()
 	}
@@ -58,14 +59,13 @@ Item {
 		interval: 1000
 		onTriggered: server.validateAndRefresh()
 	}
-	// Poor people of example.org won't be able to monitor their minecraft server :/
-	Plasmoid.configurationRequired: plasmoid.configuration.address == "" || plasmoid.configuration.address == "example.org" || plasmoid.configuration.port == null
+	Plasmoid.configurationRequired: plasmoidRoot.configurationRequired
 	Plasmoid.configurationRequiredReason: qsTr("Please set an address and port for the Minecraft server to monitor")
 	
 	Timer {
 		interval: plasmoid.configuration.refreshInterval * 1000
 		repeat: true
-		running: Plasmoid.configurationRequired
+				running: plasmoidRoot.configurationRequired
 		onTriggered: server.validateAndRefresh()
 		onIntervalChanged: {
 			restart()
@@ -78,6 +78,8 @@ Item {
 	
     Plasmoid.fullRepresentation: MinecraftServerFullDelegate {
 		name: server.name
+		address: server.address
+		port: server.port
 		currentPlayers: server.currentPlayers
 		maxPlayers: server.maxPlayers
 		icon: server.icon
@@ -95,7 +97,7 @@ Item {
 		currentPlayers: server.currentPlayers
 		motd: server.motd
 		serverState: server.serverState
-		opacity: Plasmoid.configurationRequired ? 0.5 : 1
+		opacity: plasmoidRoot.configurationRequired ? 0.5 : 1
 	}
 	
    Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation

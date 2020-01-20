@@ -18,6 +18,7 @@
 #ifndef MINECRAFTSERVERPING_H
 #define MINECRAFTSERVERPING_H
 
+#include <QDebug>
 #include <QQmlExtensionPlugin>
 #include <QQmlEngine>
 

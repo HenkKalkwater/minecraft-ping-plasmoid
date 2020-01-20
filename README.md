@@ -14,4 +14,5 @@ This should be the standard CMake build procedure:
 mkdir build && cd build
 cmake ..
 make
+sudo make install
 ```

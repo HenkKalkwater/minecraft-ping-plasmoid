@@ -39,6 +39,9 @@ MinecraftServer::MinecraftServer(const MinecraftServer& other)
 }
 
 void MinecraftServer::setAddress(QString newAddress) { 
+	if (newAddress != this->m_address) {
+		this->addressChangedSincePreviousPing = true;
+	}
 	this->m_address = newAddress;
 	emit addressChanged(newAddress);
 	if (this->m_port != 0 && !this->m_address.isEmpty() && this->m_autoPing) {
@@ -49,6 +52,9 @@ void MinecraftServer::setAddress(QString newAddress) {
 }
 
 void MinecraftServer::setPort(int newPort)  { 
+	if (newPort != this->m_port) {
+		this->addressChangedSincePreviousPing = true;
+	}
 	this->m_port = newPort; 
 	emit portChanged(newPort);
 	if (this->m_port != 0 && !this->m_address.isEmpty() && this->m_autoPing) {
@@ -115,6 +121,7 @@ void MinecraftServer::socketConnected() {
 	writeVarInt(socket, 1);
 	writeVarInt(socket, 0);
 	socket.flush();
+	qDebug() << "---------[START PARSING SOCKET DATA]------------";
 	this->pingState = PingState::REQUEST_SENT;
 }
 
@@ -180,6 +187,7 @@ void MinecraftServer::socketReadyRead() {
 			default:
 				qWarning() << "Socket response parser landed in invalid state";
 				canStillParse = false;
+				this->resetInternalState();
 				break;
 		}
 	}
@@ -188,6 +196,18 @@ void MinecraftServer::socketReadyRead() {
 void MinecraftServer::refresh() {
 	qDebug() << "Refreshing server";
 	if (this->m_serverState == ServerState::PINGING) return;
+	if (this->addressChangedSincePreviousPing) {
+		qDebug() << "Address changed since previous ping";
+		this->addressChangedSincePreviousPing = false;
+		this->m_motd = "";
+		emit motdChanged("");
+		this->m_currentPlayers = -1;
+		emit currentPlayersChanged(-1);
+		this->m_maxPlayers = -1;
+		emit currentPlayersChanged(-1);
+		this->m_icon = "";
+		emit iconChanged();
+	}
 	
 	this->setServerState(ServerState::PINGING);
 	this->socket.connectToHost(this->m_address, this->m_port);
@@ -205,6 +225,10 @@ void MinecraftServer::parseResponseJSON(QByteArray &response) {
 		return;
 	}
 	QJsonObject root = doc.object();
+	if (root.isEmpty()) {
+		this->setError(tr("Server still booting"));
+		return;
+	}
 	if (root.contains("description") && root["description"].isObject() 
 		&& root["description"].toObject().contains("text") && root["description"].toObject()["text"].isString()) {
 		this->setMotd(root["description"].toObject()["text"].toString());
@@ -275,5 +299,6 @@ int MinecraftServer::readVarInt(QIODevice &source, int &result) {
 }
 
 void MinecraftServer::resetInternalState() {
+	qDebug() << "---------[DONE PARSING SOCKET DATA]------------";
 	this->packetBuffer.reset();
 }

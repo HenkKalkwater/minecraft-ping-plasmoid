@@ -28,8 +28,10 @@ Item {
 	implicitHeight: theme.mSize(theme.defaultFont).height * 4 + units.smallSpacing * 2
 	implicitWidth: + theme.mSize(theme.defaultFont).width * 30 + theme.mSize(theme.defaultFont).height * 3 + 3 * units.smallSpacing
 	property MinecraftServer minecraftServer
-	property string icon
 	property string name
+	property string address
+	property int port
+	property string icon
 	property int currentPlayers
 	property int maxPlayers
 	property string motd
@@ -69,7 +71,7 @@ Item {
 		anchors.baseline: serverName.baseline
 		text: qsTr("??/??", "current and maximum amount of players unknown")
 		Binding on text {
-			when: currentPlayers !== undefined && maxPlayers > 0
+			when: fullRoot.serverState == MinecraftServer.ONLINE
 			value: qsTr("%1 / %2", "current players/maximum amount of players").arg(currentPlayers).arg(maxPlayers)
 		}
 	}

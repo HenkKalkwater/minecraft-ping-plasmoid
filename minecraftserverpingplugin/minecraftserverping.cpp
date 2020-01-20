@@ -19,5 +19,6 @@
 #include "minecraftserverping.h"
 
 void MinecraftServerPingPlugin::registerTypes(const char* uri) {
+	qSetMessagePattern("[%{type}] %{file}:%{line} %{message}");
 	qmlRegisterType<MinecraftServer>(uri, 1, 0, "MinecraftServer");
 }
