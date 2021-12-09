@@ -89,8 +89,8 @@ Item {
 		players: server.playerNamesSample
 		opacity: Plasmoid.configurationRequired ? 0.5 : 1
 		//height: parent.height
-		Layout.minimumWidth: implicitWidth
-		Layout.minimumHeight: implicitHeight
+		/*Layout.minimumWidth: implicitWidth
+		Layout.minimumHeight: implicitHeight*/
 	}
 	
 	Plasmoid.compactRepresentation: MinecraftServerIconDelegate {
@@ -103,20 +103,11 @@ Item {
 	}
 	
    Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
-   Plasmoid.toolTipItem: MinecraftServerFullDelegate {
-	   name: server.name
-		currentPlayers: server.currentPlayers
-		maxPlayers: server.maxPlayers
-		icon: server.icon
-		motd: server.motd
-		serverState: server.serverState
-		error: server.error
-		opacity: Plasmoid.configurationRequired ? 0.5 : 1
-		//height: parent.height
-		Layout.minimumWidth: implicitWidth
-		Layout.minimumHeight: implicitHeight
-	}
-	
+   Plasmoid.toolTipMainText: qsTr("Minecraft Server Status")
+   Plasmoid.toolTipSubText: server.playerNamesSample.length > 0
+		          ? server.playerNamesSample.join("\n")
+		          : qsTr("No players online");
+
 	Component.onCompleted: {
 		plasmoid.setAction("refresh", qsTr("Refresh"), "view-refresh")
 	}
