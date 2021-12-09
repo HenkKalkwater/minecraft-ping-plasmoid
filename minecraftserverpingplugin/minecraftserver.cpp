@@ -217,6 +217,7 @@ void MinecraftServer::refresh() {
 
 void MinecraftServer::parseResponseJSON(QByteArray &response) {
 	qDebug () << response;
+	this->m_playerNamesSample.clear();
 	QJsonDocument doc = QJsonDocument::fromJson(response);
 	if (doc.isNull()) {
 		this->setError(tr("Could not parse response: malformed JSON"));
