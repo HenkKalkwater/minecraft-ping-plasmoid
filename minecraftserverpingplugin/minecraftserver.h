@@ -64,6 +64,7 @@ public:
 	Q_PROPERTY(QString error READ error NOTIFY errorChanged STORED false)
 	Q_PROPERTY(QString motd READ motd NOTIFY motdChanged STORED false)
 	Q_PROPERTY(QString icon READ icon NOTIFY iconChanged)
+    Q_PROPERTY(QStringList playerNamesSample READ playerNamesSample NOTIFY playerNamesSampleChanged)
 	Q_PROPERTY(bool autoPing MEMBER m_autoPing NOTIFY autoPingChanged);
 	
 	/**
@@ -89,6 +90,8 @@ public:
 	 * @return the current count of players on the server.
 	 */
 	int currentPlayers() const { return this->m_currentPlayers; }
+
+	QStringList playerNamesSample() const { return this->m_playerNamesSample; }
 	
 	/**
 	 * @return the maximum amount of players on the server.
@@ -128,6 +131,7 @@ signals:
 	void serverStateChanged(ServerState newState);
 	void errorChanged(QString newError);
 	void autoPingChanged();
+	void playerNamesSampleChanged();
 	
 public slots:
 	/**
@@ -221,6 +225,8 @@ private:
 	 * Buffer used to help constructing the packets.
 	 */
 	QBuffer packetBuffer;
+
+    QStringList m_playerNamesSample;
 	/**
 	 * Small helper to help format data
 	 */

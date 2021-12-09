@@ -31,21 +31,22 @@ Item {
 		
 		TextField {
 			id: name
-			Kirigami.FormData.label: qsTr("Name:")
+			Kirigami.FormData.label: i18nc("@label:textbox Name of the Minecraft server", "Name:")
 		}
 		TextField {
 			id: address
-			Kirigami.FormData.label: qsTr("Address:")
+			Kirigami.FormData.label: i18nc("@label:textbox Address as in IP address", "Address:")
 		}
 		SpinBox {
 			id: port
-			Kirigami.FormData.label: qsTr("Port:")
+			Kirigami.FormData.label: i18nc("@label:spinbox Port as in TCP port.", "Port:")
 			from: 1
 			to: 49151
 		}
 		
 		SpinBox {
 			id: refreshIntervalField
+			Kirigami.FormData.label: i18n("Refresh interval (hh:mm):")
 			from: 0
 			to: 99999999
 			valueFromText: function(text){

@@ -30,6 +30,7 @@ Item {
 	property string motd
 	property string error
 	property int serverState
+	property var players
 	
 	Image {
 		id: serverIcon

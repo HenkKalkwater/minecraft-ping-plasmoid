@@ -86,6 +86,7 @@ Item {
 		motd: server.motd
 		serverState: server.serverState
 		error: server.error
+		players: server.playerNamesSample
 		opacity: Plasmoid.configurationRequired ? 0.5 : 1
 		//height: parent.height
 		Layout.minimumWidth: implicitWidth
@@ -97,6 +98,7 @@ Item {
 		currentPlayers: server.currentPlayers
 		motd: server.motd
 		serverState: server.serverState
+		players: server.playerNamesSample
 		opacity: plasmoidRoot.configurationRequired ? 0.5 : 1
 	}
 	

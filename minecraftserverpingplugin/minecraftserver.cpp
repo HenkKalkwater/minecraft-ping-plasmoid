@@ -1,4 +1,4 @@
-/*
+ /*
  * This file is part of MinecraftServerPing.
  * Copyright (C) 2020  Chris Josten <chris@netsoj.nl>
  * 
@@ -207,6 +207,8 @@ void MinecraftServer::refresh() {
 		emit currentPlayersChanged(-1);
 		this->m_icon = "";
 		emit iconChanged();
+		this->m_playerNamesSample.clear();
+		emit playerNamesSampleChanged();
 	}
 	
 	this->setServerState(ServerState::PINGING);
@@ -254,9 +256,19 @@ void MinecraftServer::parseResponseJSON(QByteArray &response) {
 			this->m_maxPlayers = static_cast<int>(players["max"].toDouble());
 			emit this->maxPlayersChanged(this->m_maxPlayers);
 		}
+		if (players.contains("sample") && players["sample"].isArray()) {
+			QJsonArray playerSample = players["sample"].toArray();
+			for(auto it = playerSample.begin(); it != playerSample.end(); it++) {
+				QJsonObject obj = it->toObject();
+				if (obj.contains("name")) {
+					m_playerNamesSample.append(obj["name"].toString());
+				}
+			}
+			qDebug() << m_playerNamesSample;
+			emit this->playerNamesSampleChanged();
+        }
 	}
 }
-
 
 void MinecraftServer::writeVarInt(QIODevice &dest, qint32 source) {
 	//qDebug() << "writeVarInt(source: " << Qt::bin << source << ")";

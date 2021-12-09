@@ -15,6 +15,7 @@
  * along with MinecraftServerPing. If not, see <https://www.gnu.org/licenses/>.
  */
 import QtQuick 2.6
+import QtQuick.Controls 2.6
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.extras 2.0
 import org.kde.plasma.plasmoid 2.0
@@ -27,7 +28,6 @@ Item {
 	clip: true
 	implicitHeight: theme.mSize(theme.defaultFont).height * 4 + units.smallSpacing * 2
 	implicitWidth: + theme.mSize(theme.defaultFont).width * 30 + theme.mSize(theme.defaultFont).height * 3 + 3 * units.smallSpacing
-	property MinecraftServer minecraftServer
 	property string name
 	property string address
 	property int port
@@ -37,10 +37,8 @@ Item {
 	property string motd
 	property int serverState
 	property string error
-	
-	MinecraftServer {
-		id: minecraftServer
-	}
+	property var players
+
 	Image {
 		id: serverImage
 		anchors.left: parent.left
@@ -74,6 +72,18 @@ Item {
 			when: fullRoot.serverState == MinecraftServer.ONLINE
 			value: qsTr("%1 / %2", "current players/maximum amount of players").arg(currentPlayers).arg(maxPlayers)
 		}
+
+		MouseArea {
+			id: serverPlayersHover
+			anchors.fill: parent
+			hoverEnabled: true
+
+		}
+
+		ToolTip.visible: serverPlayersHover.containsMouse
+		ToolTip.text: fullRoot.players.length > 0
+		              ? fullRoot.players.join("\n")
+					  : qsTr("No players online");
 	}
 	
 	Motd {
