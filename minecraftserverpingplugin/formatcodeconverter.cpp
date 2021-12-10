@@ -36,6 +36,7 @@ QString formattingCodeToHTML(QString formattedString) {
 				}
 				break;
 			case ESCAPE:
+				character = character.toLower();
 				if (escapeCharMap.contains(character)) {
 					EscapeCharType charType = escapeCharMap[character];
 					if ((charType & MASK_STYLE) == MASK_STYLE) {
